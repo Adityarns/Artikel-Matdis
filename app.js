@@ -27,16 +27,16 @@ let status = {
     if (status.suhu > 40) {
       if (!status.pendinginAktif) {
         status.pendinginAktif = true;
-        if (status.pendinginAktif && window.lottieAnimation){
-          window.lottieAnimation.play();
+        if (status.pendinginAktif && window.kipas){
+          window.kipas.play();
         }
         logStatus('Pendingin diaktifkan otomatis karena suhu tinggi!');
       }
     } else if (status.suhu <= 40) {
       if (status.pendinginAktif) {
         status.pendinginAktif = false;
-        if (!status.pendinginAktif && window.lottieAnimation){
-          window.lottieAnimation.stop();
+        if (!status.pendinginAktif && window.kipas){
+          window.kipas.stop();
         }
         logStatus('Pendingin dimatikan otomatis, suhu sudah aman.');
       }
