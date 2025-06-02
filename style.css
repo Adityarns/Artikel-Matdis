@@ -1,0 +1,141 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #74ebd5, #acb6e5);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 2rem;
+  }
+  
+  .container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 3rem 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    animation: fadeIn 1s ease-in;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  h2 {
+    margin-bottom: 2rem;
+    color: #333;
+    font-size: 2rem;
+  }
+  
+  .battery {
+    width: 100%;
+    max-width: 350px;
+    height: 130px;
+    border: 6px solid #333;
+    border-radius: 16px;
+    margin: 1.5rem auto;
+    position: relative;
+    background: #eee;
+    overflow: hidden;
+  }
+  
+  .battery::after {
+    content: '';
+    width: 16px;
+    height: 50px;
+    background: #333;
+    position: absolute;
+    top: 40px;
+    right: -20px;
+    border-radius: 5px;
+  }
+  
+  .charge {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, limegreen, green);
+    border-radius: 10px 0 0 10px;
+    transition: width 0.7s, background 0.7s;
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+  }
+  
+  #status {
+    margin-top: 1.5rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #007bff;
+    transition: color 0.5s ease;
+    animation: fadeText 1s;
+  }
+  
+  #status.overheat {
+    color: red;
+    animation: blink 1s infinite;
+  }
+  
+  #thermo {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: #333;
+    transition: color 0.5s ease;
+  }
+  
+  #thermo.overheat {
+    color: red;
+    font-weight: bold;
+  }
+  
+  @keyframes fadeText {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  
+  button {
+    margin-top: 1.5rem;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  
+  button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }
+  

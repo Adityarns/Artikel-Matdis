@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulasi Pengisian Baterai</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Simulasi Pengisian Baterai Kendaraan Listrik</h2>
+    
+    <div class="battery">
+      <div class="charge" id="chargeBar"></div>
+    </div>
+    
+    <p id="thermo">🌡️ Suhu: 30°C</p>
+    <p id="status">Status: Menunggu pengisian...</p>
+    
+    <button id="startBtn" onclick="startCharging()">Mulai Pengisian</button>
+    <button onclick="togglePendingin()">Toggle Pendingin</button>
+    <button onclick="naikkanSuhu()">Naikkan Suhu</button>
+  </div>
+  
+  <div id="Pendingin">
+     <canvas id="canvas" width="100" height="100"></canvas>
+    <script type="module">
+      import { DotLottie } from "https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-web/+esm";
+
+      const lottieAnimation = new DotLottie({ 
+        autoplay: false,
+        loop: true,
+        canvas: document.getElementById("canvas"),
+        src: "https://lottie.host/43c2e9fc-5ef4-4f78-b436-44bdeb97ea8d/WrUyegjcYi.lottie", // replace with your .lottie or .json file URL
+      });
+      window.lottieAnimation = lottieAnimation;
+
+    </script>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
