@@ -7,179 +7,280 @@
     text-decoration: none;
   }
   
-  html {
-  scroll-behavior: smooth;
-  }
+html {
+scroll-behavior: smooth;
+}
 
-  body {
-    font-family: 'Poppins', sans-serif;
-    background: #F5F5F5;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    padding: 2rem;
-  }
-  
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.4rem 7%;
-    background-color: #0D47A1;
-    border-bottom: 1px solid #fff;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    /* Posisi tetap diatas */
-    z-index: 9999;
-  }
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #F5F5F5;
+  /* min-height: 100vh;
+  width: 100%;
+  display: block; 
+  overflow-x: hidden;
+  padding-top: 6rem;  */
+}
 
-  .navbar .navbar-logo {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #fff;
-    font-style: italic;
-  }
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 7%;
+  background-color: #0D47A1;
+  border-bottom: 1px solid #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* Posisi tetap diatas */
+  z-index: 9999;
+}
 
-  .navbar .navbar-logo span {
-    color: #00C853;
-  }
+.navbar .navbar-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  font-style: italic;
+}
 
-  .hero {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 3rem 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    max-width: 600px;
-    animation: fadeIn 1s ease-in;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    margin-bottom: 100px;
-  }
+.navbar .navbar-logo span {
+  color: #00C853;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.hero::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 30%;
+  bottom: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(1, 1, 3, 1) 8%,
+    rgba(255, 255, 255, 0) 50%
+  );
+}
+
+.hero .content {
+  padding: 1.4rem 7%;
+  max-width: 60rem;
+}
+
+.hero .content h1 {
+  font-size: 5em;
+  color: #0056b3;
+  text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+  line-height: 1.2;
+}
+
+.hero .content h1 span {
+  color: #00C853;
+}
+
+.hero .content p {
+  font-size: 1.6rem;
+  color: black;
+  margin-top: 1rem;
+  line-height: 1.4;
+  font-weight: 100;
+  text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+  /* Warna berubah jika sama */
+  /* mix-blend-mode: difference; */
+}
+
+.hero .content .cta {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.4rem;
+  color:#333;
+  background-color: var(--primary);
+  border-radius: 2rem;
+  box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+}
+.about,
+.menu,
+.contact {
+  padding: 10rem 7% 1.4rem;
+}
+
+.about h2,
+.menu h2,
+.contact h2 {
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 3rem;
+}
+
+.about h2 span,
+.menu h2 span,
+.contact h2 span {
+  color: var(--primary);
+}
+
+.about .row {
+  display: flex;
+}
+
+.about .row .content {
+  flex: 1 1 35rem;
+  padding: 0 1rem;
+}
+
+.about .row .content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.about .row .content p {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  font-weight: 100;
+  line-height: 1.6;
+}
+
+.program {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 3rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  animation: fadeIn 1s ease-in;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+h2 {
+  margin-bottom: 2rem;
+  color: #333;
+  font-size: 2rem;
+}
+
+.battery {
+  width: 100%;
+  max-width: 350px;
+  height: 130px;
+  border: 6px solid #333;
+  border-radius: 16px;
+  margin: 1.5rem auto;
+  position: relative;
+  background: #eee;
+  overflow: hidden;
+}
+
+.battery::after {
+  content: '';
+  width: 16px;
+  height: 50px;
+  background: #333;
+  position: absolute;
+  top: 40px;
+  right: -20px;
+  border-radius: 5px;
+}
+
+.charge {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, limegreen, green);
+  border-radius: 10px 0 0 10px;
+  transition: width 0.7s, background 0.7s;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+#status {
+  margin-top: 1.5rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #007bff;
+  transition: color 0.5s ease;
+  animation: fadeText 1s;
+}
   
-  @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-  }
-  
-  h2 {
-    margin-bottom: 2rem;
-    color: #333;
-    font-size: 2rem;
-  }
-  
-  .battery {
-    width: 100%;
-    max-width: 350px;
-    height: 130px;
-    border: 6px solid #333;
-    border-radius: 16px;
-    margin: 1.5rem auto;
-    position: relative;
-    background: #eee;
-    overflow: hidden;
-  }
-  
-  .battery::after {
-    content: '';
-    width: 16px;
-    height: 50px;
-    background: #333;
-    position: absolute;
-    top: 40px;
-    right: -20px;
-    border-radius: 5px;
-  }
-  
-  .charge {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, limegreen, green);
-    border-radius: 10px 0 0 10px;
-    transition: width 0.7s, background 0.7s;
-    animation: pulse 2s infinite;
-  }
-  
-  @keyframes pulse {
-    0% { opacity: 1; }
-    50% { opacity: 0.7; }
-    100% { opacity: 1; }
-  }
-  
-  #status {
-    margin-top: 1.5rem;
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: #007bff;
-    transition: color 0.5s ease;
-    animation: fadeText 1s;
-  }
-  
-  #status.overheat {
-    color: red;
-    animation: blink 1s infinite;
-  }
-  
-  #thermo {
-    margin-top: 1rem;
-    font-size: 1.2rem;
-    color: #333;
-    transition: color 0.5s ease;
-  }
-  
-  #thermo.overheat {
-    color: red;
-    font-weight: bold;
-  }
-  
-  @keyframes fadeText {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
-  }
-  
-  button {
-    margin-top: 0.5rem;
-    padding: 0.4rem 0.4rem;
-    font-size: 1rem;
-    background-color:#00C853;
-    color: white;
-    border: none;
-    border-radius: 2rem;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-    display: block;
-    width: 100%;
-    max-width: 250px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-  }
-  
-  button:disabled {
-    background-color: gray;
-    cursor: not-allowed;
-  }
-  
-  /* footer */
-  .footer {
+#status.overheat {
+  color: red;
+  animation: blink 1s infinite;
+}
+
+#thermo {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #333;
+  transition: color 0.5s ease;
+}
+
+#thermo.overheat {
+  color: red;
+  font-weight: bold;
+}
+
+@keyframes fadeText {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+button {
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.4rem;
+  font-size: 1rem;
+  background-color:#00C853;
+  color: white;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  display: block;
+  width: 100%;
+  max-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+button:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+/* footer */
+.footer {
   width: 100%;
   background-color: #0D47A1;
   color: white;
