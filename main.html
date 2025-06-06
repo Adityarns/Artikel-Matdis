@@ -37,13 +37,68 @@
   </section>
   <!-- Hero Section end -->
 
-  <!-- About Section Start -->
+  <!-- Program Section Start -->
+  <section class="program" id="program">
+    <h2>Program</h2>
+    <div class="program-wrapper">
+      <div id="spklu">
+        <img src="SPKLU.png" width="700" height="500">
+      </div>
+      <div id="Mobil">
+        <canvas id="canvasMobil" width="300" height="300"></canvas>
+        <script type="module">
+          import { DotLottie } from "https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-web/+esm";
+
+          const mobil = new DotLottie({
+            autoplay: true,
+            loop: true,
+            canvas: document.getElementById("canvasMobil"),
+            src: "https://lottie.host/db061f9b-27c6-4da6-a306-ee9da43493bb/RWwAG9cUB2.lottie", // replace with your .lottie or .json file URL
+          });
+          window.mobil = mobil;
+        </script>
+      </div>
+      <div id="utama">
+        <h3>Stasiun Pengisian Baterai Kendaraan Listrik</h3>
+        
+        <div class="battery">
+          <div class="charge" id="chargeBar"></div>
+        </div>
+        
+        <p id="thermo">🌡️ Suhu: 30°C</p>
+        <p id="status">Status: Menunggu pengisian...</p>
+        
+        <button id="startBtn" onclick="startCharging()">Mulai Pengisian</button>
+        <button onclick="togglePendingin()">Toggle Pendingin</button>
+        <button onclick="naikkanSuhu()">Naikkan Suhu</button>
+      </div>
+      <div id="Pendingin">
+      <canvas id="canvasPendingin" width="300" height="300"></canvas>
+      <script type="module">
+        import { DotLottie } from "https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-web/+esm";
+  
+        const kipas = new DotLottie({ 
+          autoplay: false,
+          loop: true,
+          canvas: document.getElementById("canvasPendingin"),
+          src: "https://lottie.host/43c2e9fc-5ef4-4f78-b436-44bdeb97ea8d/WrUyegjcYi.lottie", 
+        });
+        window.kipas = kipas;
+  
+      </script>
+    </div>
+    </div>
+
+  </section>
+  <!-- Program Section End -->
+ 
+   <!-- About Section Start -->
     <section id="about" class="about">
-      <h2><span>Tentang</span> Kami</h2>
+      <h2><span>Tentang</span> Program</h2>
 
       <div class="row">
         <div class="content">
-          <h3>Kenapa memilih produk kami?</h3>
+          <h3>Penerapan Aljabar Boolean Sederhana</h3>
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut maxime
             dolores, aliquam commodi eaque repellendus modi rerum, pariatur eum
@@ -60,40 +115,7 @@
     </section>
     <!-- About Section End -->
 
-  <!-- Program Section Start -->
-  <section class="program">
-    <h2>Stasiun Pengisian Baterai Kendaraan Listrik</h2>
-    
-    <div class="battery">
-      <div class="charge" id="chargeBar"></div>
-    </div>
-    
-    <p id="thermo">🌡️ Suhu: 30°C</p>
-    <p id="status">Status: Menunggu pengisian...</p>
-    
-    <button id="startBtn" onclick="startCharging()">Mulai Pengisian</button>
-    <button onclick="togglePendingin()">Toggle Pendingin</button>
-    <button onclick="naikkanSuhu()">Naikkan Suhu</button>
-    
-  </section>
-  <!-- Program Section End -->
   
-  <div id="Pendingin">
-    <canvas id="canvas" width="300" height="300"></canvas>
-    <script type="module">
-      import { DotLottie } from "https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-web/+esm";
-
-      const kipas = new DotLottie({ 
-        autoplay: false,
-        loop: true,
-        canvas: document.getElementById("canvas"),
-        src: "https://lottie.host/43c2e9fc-5ef4-4f78-b436-44bdeb97ea8d/WrUyegjcYi.lottie", 
-      });
-      window.kipas = kipas;
-
-    </script>
-  </div>
-
   <!-- Footer Start -->
   <footer class="footer">
       <div class="socials">
@@ -104,13 +126,12 @@
 
       <div class="links">
         <a href="#home">Home</a>
-        <a href="#about">Tentang Kami</a>
-        <a href="#menu">Menu</a>
-        <a href="#contact">Kontak</a>
+        <a href="#about">Tentang Program</a>
+        <a href="#program">Program</a>
       </div>
 
       <div class="credit">
-        <p>Created by <a href="">Aditya Rahman Syach</a>.|&copy 2024.</p>
+        <p>Created by <a href="">Mahasiswa Informatika UIN SGD</a>.|&copy 2024.</p>
       </div>
     </footer>
     <!-- Footer End --> 

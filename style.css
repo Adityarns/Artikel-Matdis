@@ -14,16 +14,11 @@ scroll-behavior: smooth;
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #F5F5F5;
-  /* min-height: 100vh;
-  width: 100%;
-  display: block; 
-  overflow-x: hidden;
-  padding-top: 6rem;  */
 }
 
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 1.4rem 7%;
   background-color: #0D47A1;
@@ -51,11 +46,12 @@ body {
   min-height: 100vh;
   display: flex;
   align-items: center;
+  background-image: url(PLN.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   position: relative;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
 }
 
 .hero::after {
@@ -67,7 +63,7 @@ body {
   bottom: 0;
   background: linear-gradient(
     0deg,
-    rgba(1, 1, 3, 1) 8%,
+    rgb(31, 31, 93) 8%,
     rgba(255, 255, 255, 0) 50%
   );
 }
@@ -109,24 +105,19 @@ body {
   border-radius: 2rem;
   box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
 }
-.about,
-.menu,
-.contact {
+
+.about {
   padding: 10rem 7% 1.4rem;
 }
 
-.about h2,
-.menu h2,
-.contact h2 {
+.about h2 {
   text-align: center;
   font-size: 2.6rem;
   margin-bottom: 3rem;
 }
 
-.about h2 span,
-.menu h2 span,
-.contact h2 span {
-  color: var(--primary);
+.about h2 span {
+  color: #0056b3;
 }
 
 .about .row {
@@ -144,6 +135,7 @@ body {
 }
 
 .about .row .content p {
+  text-align: justify;
   font-size: 1.2rem;
   margin-bottom: 0.8rem;
   font-weight: 100;
@@ -151,31 +143,47 @@ body {
 }
 
 .program {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* gap: 3rem; */
+  margin-top: 5rem;
+  margin-bottom: 10rem;
+  width: 100%;
+}
+
+.program h2 {
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 3rem;
+}
+
+.program-wrapper {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.program .program-wrapper #utama{
   background: rgba(255, 255, 255, 0.9);
   padding: 3rem 2rem;
   border-radius: 1rem;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
-  align-items: center;
   text-align: center;
-  width: 100%;
   max-width: 600px;
   animation: fadeIn 1s ease-in;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   position: relative;
-  margin-bottom: 2rem;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-h2 {
-  margin-bottom: 2rem;
-  color: #333;
-  font-size: 2rem;
+.program .program-wrapper #pendingin{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .battery {
