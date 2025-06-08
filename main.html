@@ -66,8 +66,7 @@
           <div class="charge" id="chargeBar"></div>
         </div>
         
-        <p id="thermo">🌡️ Suhu: 30°C</p>
-        <p id="status">Status: Menunggu pengisian...</p>
+        
         
       </div>
         
@@ -84,27 +83,32 @@
             src: "https://lottie.host/43c2e9fc-5ef4-4f78-b436-44bdeb97ea8d/WrUyegjcYi.lottie", 
           });
           window.kipas = kipas;
-          
         </script>
       </div>
     </div>
 
-    <div class="program-status">
+    <div class="statusTombol">
+      <div class="program-status">
+        <h3>Status</h3>
+        <p id="statusBaterai">Baterai: -</p>
+        <p id="thermo">Suhu: -</p>
+        <p id="daya">Daya: -</p>
+        <p id="cooler">Pendingin: -</p>
+        <p id="status">Status: Menunggu pengisian...</p>
+      </div>
+  
       <div class="tombol">
-        <button id="startBtn" onclick="startCharging()">Mulai Pengisian</button>
+        <h3>Tombol</h3>
+        <button id="startBtn" onclick="startCharging()">Start</button>
         <button onclick="togglePendingin()">Toggle Pendingin</button>
         <button onclick="naikkanSuhu()">Naikkan Suhu</button> 
       </div>
-
     </div>
-
-
-
   </section>
   <!-- Program Section End -->
  
    <!-- About Section Start -->
-    <section id="about" class="about">
+    <section class="about">
       <h2><span>Tentang</span> Program</h2>
 
       <div class="row">
