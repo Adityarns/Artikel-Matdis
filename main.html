@@ -46,15 +46,15 @@
     <div class="program-wrapper">
       <div id="mobil">
         <h3 id="spklu">SPKLU</h3>
-        <canvas id="canvasMobil" width="700" height="700"></canvas>
+        <canvas id="canvasMobil" width="500" height="300"></canvas>
         <script type="module">
           import { DotLottie } from "https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-web/+esm";
 
           const mobil = new DotLottie({
-            autoplay: false,
+            autoplay: true,
             loop: true,
             canvas: document.getElementById("canvasMobil"),
-            src: "https://lottie.host/cb593f37-0d80-4847-8a0b-fc0c59eb5284/DSoSgtCNKf.lottie", 
+            src: "https://lottie.host/09c2adff-3418-438c-81ff-4c099b650a89/MYqBHtO5dP.lottie", 
           });
           window.mobil = mobil;
         </script>
@@ -70,7 +70,7 @@
         <p id="status">Status: Menunggu pengisian...</p>
         
       </div>
-      
+        
       <div id="Pendingin">
       <h3 id="pendingin"> Pendingin</h3>
         <canvas id="canvasPendingin" width="300" height="300"></canvas>
@@ -89,10 +89,13 @@
       </div>
     </div>
 
-    <div class="tombol">
-      <button id="startBtn" onclick="startCharging()">Mulai Pengisian</button>
-      <button onclick="togglePendingin()">Toggle Pendingin</button>
-      <button onclick="naikkanSuhu()">Naikkan Suhu</button> 
+    <div class="program-status">
+      <div class="tombol">
+        <button id="startBtn" onclick="startCharging()">Mulai Pengisian</button>
+        <button onclick="togglePendingin()">Toggle Pendingin</button>
+        <button onclick="naikkanSuhu()">Naikkan Suhu</button> 
+      </div>
+
     </div>
 
 
