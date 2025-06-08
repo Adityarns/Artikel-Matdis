@@ -49,6 +49,15 @@ function pengaturanPendingin(status) {
   }
 }
 
+function pengaturanSPKLU (status){
+  if (status.pengisianAktif && window.mobil){
+    window.mobil.play();
+  }
+  else if(status.penghentianPengisian){
+    window.mobil.stop();
+  }
+}
+
 function penguranganArus(status) {
   if (status.kapasitasBaterai >= 90) {
     return 1;
@@ -167,7 +176,7 @@ function startCharging() {
     updateSuhu(status);
     updatePendingin(status);
     updateBaterai(status);
-
+    pengaturanSPKLU(status);
     if (status.pendinginOtomatis) pengaturanPendingin(status);
 
     status.bateraiPenuh = status.kapasitasBaterai >= 100;
