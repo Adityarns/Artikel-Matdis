@@ -40,27 +40,28 @@
   <!-- Program Section Start -->
   <section class="program" id="program">
     <h2>Program</h2>
+    <h3 class="judulProgram">
+    </h3>
+
     <div class="program-wrapper">
-      <div id="spklu">
-        <img src="SPKLU.png" width="700" height="500">
-      </div>
-      <div id="Mobil">
-        <canvas id="canvasMobil" width="300" height="300"></canvas>
+      <div id="mobil">
+        <h3 id="spklu">SPKLU</h3>
+        <canvas id="canvasMobil" width="700" height="700"></canvas>
         <script type="module">
           import { DotLottie } from "https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-web/+esm";
 
           const mobil = new DotLottie({
-            autoplay: true,
+            autoplay: false,
             loop: true,
             canvas: document.getElementById("canvasMobil"),
-            src: "https://lottie.host/db061f9b-27c6-4da6-a306-ee9da43493bb/RWwAG9cUB2.lottie", // replace with your .lottie or .json file URL
+            src: "https://lottie.host/cb593f37-0d80-4847-8a0b-fc0c59eb5284/DSoSgtCNKf.lottie", 
           });
           window.mobil = mobil;
         </script>
       </div>
-      <div id="utama">
-        <h3>Stasiun Pengisian Baterai Kendaraan Listrik</h3>
-        
+
+      <div id="utama">   
+        <h3 id="baterai"> Baterai</h3>
         <div class="battery">
           <div class="charge" id="chargeBar"></div>
         </div>
@@ -68,26 +69,33 @@
         <p id="thermo">🌡️ Suhu: 30°C</p>
         <p id="status">Status: Menunggu pengisian...</p>
         
-        <button id="startBtn" onclick="startCharging()">Mulai Pengisian</button>
-        <button onclick="togglePendingin()">Toggle Pendingin</button>
-        <button onclick="naikkanSuhu()">Naikkan Suhu</button>
       </div>
+      
       <div id="Pendingin">
-      <canvas id="canvasPendingin" width="300" height="300"></canvas>
-      <script type="module">
-        import { DotLottie } from "https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-web/+esm";
-  
-        const kipas = new DotLottie({ 
-          autoplay: false,
-          loop: true,
-          canvas: document.getElementById("canvasPendingin"),
-          src: "https://lottie.host/43c2e9fc-5ef4-4f78-b436-44bdeb97ea8d/WrUyegjcYi.lottie", 
-        });
-        window.kipas = kipas;
-  
-      </script>
+      <h3 id="pendingin"> Pendingin</h3>
+        <canvas id="canvasPendingin" width="300" height="300"></canvas>
+        <script type="module">
+          import { DotLottie } from "https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-web/+esm";
+          
+          const kipas = new DotLottie({ 
+            autoplay: false,
+            loop: true,
+            canvas: document.getElementById("canvasPendingin"),
+            src: "https://lottie.host/43c2e9fc-5ef4-4f78-b436-44bdeb97ea8d/WrUyegjcYi.lottie", 
+          });
+          window.kipas = kipas;
+          
+        </script>
+      </div>
     </div>
+
+    <div class="tombol">
+      <button id="startBtn" onclick="startCharging()">Mulai Pengisian</button>
+      <button onclick="togglePendingin()">Toggle Pendingin</button>
+      <button onclick="naikkanSuhu()">Naikkan Suhu</button> 
     </div>
+
+
 
   </section>
   <!-- Program Section End -->

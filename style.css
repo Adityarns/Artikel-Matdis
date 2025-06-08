@@ -147,8 +147,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* gap: 3rem; */
-  margin-top: 5rem;
+  margin-top: 2rem;
   margin-bottom: 10rem;
   width: 100%;
 }
@@ -156,21 +155,33 @@ body {
 .program h2 {
   text-align: center;
   font-size: 2.6rem;
-  margin-bottom: 3rem;
+  margin-bottom: 0.1rem;
 }
 
-.program-wrapper {
+.program h3 {
   display: flex;
-  gap: 3rem;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.program .program-wrapper {
+  display: flex;
+  gap: 7rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.program .program-wrapper #mobil{
+  justify-content: left;
 }
 
 .program .program-wrapper #utama{
-  background: rgba(255, 255, 255, 0.9);
+  /* background: rgba(255, 255, 255, 0.9);
   padding: 3rem 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  border-radius: 1rem; */
+  /* box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25); */
   text-align: center;
   max-width: 600px;
   animation: fadeIn 1s ease-in;
@@ -184,6 +195,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.program .tombol {
+  display: flex;
+  flex-direction: row; /* agar tombol dalam 1 baris */
+  justify-content: center;
+  align-items: center;
+  gap: 1rem; /* jarak antar tombol */
+  margin-top: 1rem;
 }
 
 .battery {
