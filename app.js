@@ -37,6 +37,7 @@ function startCharging() {
   document.getElementById('startBtn').disabled = true;
   interval = setInterval(() => {
     updateSuhu(status);
+    updateBaterai(status);
 
     if (status.pendinginOtomatis) pengaturanPendingin(status);
 
@@ -47,7 +48,7 @@ function startCharging() {
       status.pengisianAktif = false;
       document.getElementById('startBtn').disabled = false;
       logStatus(
-        `Pengisian berhenti (${status.kapasitasBaterai}%, Suhu: ${status.suhu.toFixed(1)}°C)`
+        `Pengisian berhenti`
       );
       return;
     }
@@ -57,19 +58,16 @@ function startCharging() {
       status.kapasitasBaterai = Math.min(100, status.kapasitasBaterai + kenaikan);
       updateChargeBar();
       logStatus(
-        `Mengisi (${status.kapasitasBaterai}%, Suhu: ${status.suhu.toFixed(1)}°C, Pendingin: ${
-          status.pendinginAktif ? 'ON' : 'OFF'
-        })`
+        `Sedang Mengisi`
       );
     } else {
       clearInterval(interval);
       document.getElementById('startBtn').disabled = false;
-      logStatus(`Pengisian selesai (${status.kapasitasBaterai}%)`);
+      logStatus(`Pengisian selesai`);
     }
   }, 1000);
 }
   
-
 function pengaturanPendingin(status) {
   if (status.suhu > 40) {
     if (!status.pendinginAktif) {
@@ -141,6 +139,10 @@ function updateChargeBar() {
   }
 }
 
+function updateBaterai(status){
+  document.getElementById('statusBaterai').textContent = `Baterai: ${status.kapasitasBaterai}%`;
+}
+
 function naikkanSuhu() {
   status.suhu += 5;
   if (status.suhu > 100) status.suhu = 100;
@@ -168,7 +170,6 @@ function togglePendingin() {
   
 function logStatus(teks) {
   document.getElementById('status').textContent = `Status: ${teks}`;
-  notifSound.play();
 }
 
 // Fungsi untuk memulai pengisian kembali ketika suhu sudah turun

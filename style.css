@@ -277,15 +277,6 @@ body {
   font-weight: bold;
 }
 
-/* @keyframes fadeText {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-} */
 
 button {
   margin-top: 0.5rem;
