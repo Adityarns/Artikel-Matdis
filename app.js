@@ -29,45 +29,6 @@ function keberlanjutanPengisian(status) {
    );
 }
 
-function startCharging() {
-  if (!mulaiPengisian(status)) {
-    alert('Tidak dapat memulai pengisian! Periksa tegangan, arus, atau suhu.');
-    return;
-  }
-  document.getElementById('startBtn').disabled = true;
-  interval = setInterval(() => {
-    updateSuhu(status);
-    updateBaterai(status);
-
-    if (status.pendinginOtomatis) pengaturanPendingin(status);
-
-    status.bateraiPenuh = status.kapasitasBaterai >= 100;
-
-    if (penghentianPengisian(status)) {
-      clearInterval(interval);
-      status.pengisianAktif = false;
-      document.getElementById('startBtn').disabled = false;
-      logStatus(
-        `Pengisian berhenti`
-      );
-      return;
-    }
-
-    if (keberlanjutanPengisian(status)) {
-      let kenaikan = penguranganArus(status);
-      status.kapasitasBaterai = Math.min(100, status.kapasitasBaterai + kenaikan);
-      updateChargeBar();
-      logStatus(
-        `Sedang Mengisi`
-      );
-    } else {
-      clearInterval(interval);
-      document.getElementById('startBtn').disabled = false;
-      logStatus(`Pengisian selesai`);
-    }
-  }, 1000);
-}
-  
 function pengaturanPendingin(status) {
   if (status.suhu > 40) {
     if (!status.pendinginAktif) {
@@ -143,6 +104,15 @@ function updateBaterai(status){
   document.getElementById('statusBaterai').textContent = `Baterai: ${status.kapasitasBaterai}%`;
 }
 
+function updatePendingin(status){
+  if(status.pendinginAktif){
+    document.getElementById('cooler').textContent = `Pendingin: Aktif`;
+  }
+  else{
+    document.getElementById('cooler').textContent = `Pendingin: -`;
+  }
+}
+
 function naikkanSuhu() {
   status.suhu += 5;
   if (status.suhu > 100) status.suhu = 100;
@@ -186,4 +156,43 @@ setInterval(() => {
     checkTemperatureAndRestartCharging();
   }
 }, 1000);
-  
+
+function startCharging() {
+  if (!mulaiPengisian(status)) {
+    alert('Tidak dapat memulai pengisian! Periksa tegangan, arus, atau suhu.');
+    return;
+  }
+  document.getElementById('startBtn').disabled = true;
+  interval = setInterval(() => {
+    updateSuhu(status);
+    updatePendingin(status);
+    updateBaterai(status);
+
+    if (status.pendinginOtomatis) pengaturanPendingin(status);
+
+    status.bateraiPenuh = status.kapasitasBaterai >= 100;
+
+    if (penghentianPengisian(status)) {
+      clearInterval(interval);
+      status.pengisianAktif = false;
+      document.getElementById('startBtn').disabled = false;
+      logStatus(
+        `Pengisian berhenti`
+      );
+      return;
+    }
+
+    if (keberlanjutanPengisian(status)) {
+      let kenaikan = penguranganArus(status);
+      status.kapasitasBaterai = Math.min(100, status.kapasitasBaterai + kenaikan);
+      updateChargeBar();
+      logStatus(
+        `Sedang Mengisi`
+      );
+    } else {
+      clearInterval(interval);
+      document.getElementById('startBtn').disabled = false;
+      logStatus(`Pengisian selesai`);
+    }
+  }, 1000);
+}
