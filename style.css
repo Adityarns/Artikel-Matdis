@@ -13,12 +13,13 @@ scroll-behavior: smooth;
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #000000;
+  background-color: #000;
 }
 
 p{
   font-family: 'Poppins', sans-serif;
 }
+
 .navbar {
   display: flex;
   justify-content: center;
@@ -42,7 +43,7 @@ p{
 }
 
 .navbar .navbar-logo span {
-  color: #0056b3;
+  color: #3282B8;
 }
 
 .hero {
@@ -78,13 +79,13 @@ p{
 
 .hero .content h1 {
   font-size: 5em;
-  color: #000;
+  color: #fff;
   text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
   line-height: 1.2;
 }
 
 .hero .content h1 span {
-  color: #0056b3;
+  color: #3282B8;
 }
 
 .hero .content p {
@@ -94,8 +95,6 @@ p{
   line-height: 1.4;
   font-weight: 100;
   text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
-  /* Warna berubah jika sama */
-  /* mix-blend-mode: difference; */
 }
 
 .hero .content .cta {
@@ -124,7 +123,7 @@ p{
   text-align: center;
   font-size: 3rem;
   margin-bottom: 0.1rem;
-  color: #0056b3;
+  color: #3282B8;
 }
 
 .program h3 {
@@ -134,7 +133,7 @@ p{
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  color: #0056b3;
+  color: #000;
 }
 
 .program .program-wrapper {
@@ -149,7 +148,7 @@ p{
   border: 2px solid #ccc;
   border-radius: 16px;
   padding: 2rem;
-  background-color:#ffffff; /* Opsional, agar kontras */
+  background-color:#BBE1FA; /* Opsional, agar kontras */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Opsional, untuk efek bayangan */
   min-width: 300px;
   max-width: 100%;
@@ -183,7 +182,7 @@ p{
   flex-direction: row;
   justify-content: center;
   align-items: flex-start; 
-  gap: 15rem;
+  gap: 6rem;
   flex-wrap: wrap;
   margin-top: 1rem;
   text-align: center;
@@ -199,7 +198,7 @@ p{
   margin-top: 1rem;
   border: 6px solid #0056b3;
   border-radius: 20px;
-  background-color: #fff;
+  background-color: #BBE1FA;
   padding: 15px 20px 15px;
 }
 
@@ -215,6 +214,15 @@ p{
   text-align: left;
 }
 
+#status {
+  margin-top: 0.3rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #007bff;
+  transition: color 0.5s ease;
+  animation: fadeText 1s;
+}
+
 .program .tombol {
   display: flex;
   flex-direction: column; /* agar tombol dalam 1 baris */
@@ -222,16 +230,21 @@ p{
   align-items: center;
   gap: 1rem; /* jarak antar tombol */
   margin-top: 1rem;
+  border: 6px solid #0056b3;
+  border-radius: 20px;
+  background-color: #BBE1FA;
+  padding: 15px 20px 15px;
 }
 
 .statusTombol .tombol button {
   margin-top: 0.5rem;
   padding: 0.4rem 0.4rem;
-  font-size: 1rem;
-  background-color:#00C853;
-  color: white;
-  border: none;
-  border-radius: 2rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  background-color:#fff;
+  color: #000;
+  border: 3px solid;
+  border-radius: 1.3rem;
   cursor: pointer;
   transition: background 0.3s, transform 0.2s;
   display: block;
@@ -288,16 +301,6 @@ p{
   50% { opacity: 0.7; }
   100% { opacity: 1; }
 }
-
-#status {
-  margin-top: 1.5rem;
-  font-weight: bold;
-  font-size: 1.2rem;
-  color: #007bff;
-  transition: color 0.5s ease;
-  animation: fadeText 1s;
-}
-  
 
 .about {
   padding: 10rem 7% 1.4rem;
