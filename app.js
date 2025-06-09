@@ -49,15 +49,6 @@ function pengaturanPendingin(status) {
   }
 }
 
-function pengaturanSPKLU (status){
-  if (status.pengisianAktif && window.mobil){
-    window.mobil.play();
-  }
-  else if(status.penghentianPengisian){
-    window.mobil.stop();
-  }
-}
-
 function penguranganArus(status) {
   if (status.kapasitasBaterai >= 90) {
     return 1;
@@ -159,13 +150,6 @@ function checkTemperatureAndRestartCharging() {
   }
 }
 
-// Periksa suhu setiap detik
-setInterval(() => {
-  if (status.suhu <= 40 && !status.pengisianAktif) {
-    checkTemperatureAndRestartCharging();
-  }
-}, 1000);
-
 function startCharging() {
   if (!mulaiPengisian(status)) {
     alert('Tidak dapat memulai pengisian! Periksa tegangan, arus, atau suhu.');
@@ -176,7 +160,6 @@ function startCharging() {
     updateSuhu(status);
     updatePendingin(status);
     updateBaterai(status);
-    pengaturanSPKLU(status);
     if (status.pendinginOtomatis) pengaturanPendingin(status);
 
     status.bateraiPenuh = status.kapasitasBaterai >= 100;
@@ -188,9 +171,10 @@ function startCharging() {
       logStatus(
         `Pengisian berhenti`
       );
+      window.mobil.stop();
       return;
     }
-
+    
     if (keberlanjutanPengisian(status)) {
       let kenaikan = penguranganArus(status);
       status.kapasitasBaterai = Math.min(100, status.kapasitasBaterai + kenaikan);
@@ -198,10 +182,20 @@ function startCharging() {
       logStatus(
         `Sedang Mengisi`
       );
-    } else {
+      window.mobil.play();
+    } 
+    else {
       clearInterval(interval);
       document.getElementById('startBtn').disabled = false;
       logStatus(`Pengisian selesai`);
+      window.mobil.stop();
     }
   }, 1000);
 }
+
+// Periksa suhu setiap detik
+setInterval(() => {
+  if (status.suhu <= 40 && !status.pengisianAktif) {
+    checkTemperatureAndRestartCharging();
+  }
+}, 1000);
