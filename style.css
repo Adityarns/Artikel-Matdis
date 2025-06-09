@@ -16,6 +16,9 @@ body {
   background-color: #000000;
 }
 
+p{
+  font-family: 'Poppins', sans-serif;
+}
 .navbar {
   display: flex;
   justify-content: center;
@@ -182,9 +185,9 @@ body {
   align-items: flex-start; 
   gap: 15rem;
   flex-wrap: wrap;
-  margin-top: 2rem;
+  margin-top: 1rem;
   text-align: center;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .program .program-status {
@@ -194,6 +197,10 @@ body {
   text-align: center;  /* tambahkan ini */
   gap: 1rem;
   margin-top: 1rem;
+  border: 6px solid #0056b3;
+  border-radius: 20px;
+  background-color: #fff;
+  padding: 15px 20px 15px;
 }
 
 .program .program-status h3{
@@ -201,8 +208,10 @@ body {
 }
 
 .program .program-status p{
-  color: #fff;
-  width: 200px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000;
+  width: 500px;
   text-align: left;
 }
 
@@ -213,6 +222,33 @@ body {
   align-items: center;
   gap: 1rem; /* jarak antar tombol */
   margin-top: 1rem;
+}
+
+.statusTombol .tombol button {
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.4rem;
+  font-size: 1rem;
+  background-color:#00C853;
+  color: white;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  display: block;
+  width: 100%;
+  max-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.statusTombol .tombol button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.statusTombol .tombol button:disabled {
+  background-color: gray;
+  cursor: not-allowed;
 }
 
 .battery {
@@ -262,48 +298,6 @@ body {
   animation: fadeText 1s;
 }
   
-#status.overheat {
-  color: red;
-  animation: blink 1s infinite;
-}
-
-#thermo {
-  font-size: 1.2rem;
-  transition: color 0.5s ease;
-}
-
-#thermo.overheat {
-  color: red;
-  font-weight: bold;
-}
-
-
-button {
-  margin-top: 0.5rem;
-  padding: 0.4rem 0.4rem;
-  font-size: 1rem;
-  background-color:#00C853;
-  color: white;
-  border: none;
-  border-radius: 2rem;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
-  display: block;
-  width: 100%;
-  max-width: 250px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-button:hover {
-  background-color: #0056b3;
-  transform: scale(1.05);
-}
-
-button:disabled {
-  background-color: gray;
-  cursor: not-allowed;
-}
 
 .about {
   padding: 10rem 7% 1.4rem;
