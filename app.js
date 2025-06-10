@@ -1,14 +1,14 @@
 let status = {
     // tegangan: true,
     // arus: true,
-    daya: true,
+    powerAman: false,
     suhuAman: true,
     bateraiPenuh: false,
     pendinginAktif: false,
     pendinginOtomatis: true,
     pengisianAktif: true,
     kapasitasBaterai: 0,
-    suhu: 30,
+    suhu: 25,
   };
 
 let interval;
@@ -17,11 +17,11 @@ const overheatLevel = 50;
 // const notifSound = new Audio('notif-sound.mp3');
 
 function mulaiPengisian(status) {
-  return status.daya && status.suhuAman && !status.bateraiPenuh;
+  return status.powerAman && status.suhuAman && !status.bateraiPenuh;
 }
 
 function penghentianPengisian(status) {
-  return status.bateraiPenuh || !status.suhuAman || !status.daya;
+  return status.bateraiPenuh || !status.suhuAman || !status.powerAman;
 }
 
 function keberlanjutanPengisian(status) {
@@ -40,7 +40,7 @@ function pengaturanPendingin(status) {
       }
       logStatus('Pendingin diaktifkan otomatis karena suhu tinggi!');
     }
-  } else if (status.suhu <= 40) {
+  } else if (status.suhu <= 35) {
     if (status.pendinginAktif) {
       status.pendinginAktif = false;
       if (!status.pendinginAktif && window.kipas){
@@ -62,8 +62,13 @@ function penguranganArus(status) {
   }
 }
 
-function pengaturanDaya(status){
-  
+function pengaturanPower(status){
+  status.powerAman = true;
+  document.getElementById('power').textContent = `Aktif`;
+}
+
+function nyalakanPower(){
+  pengaturanPower(status);
 }
 
 function updateSuhu(status) {
@@ -77,16 +82,17 @@ function updateSuhu(status) {
     } else {
       status.suhu -= 1; // Normal cooling
     }
-  } else if (!status.pengisianAktif) {
-    status.suhu -= 0.1; // Perlahan turun meski tidak ada pendingin
+  } 
+  else if (!status.pengisianAktif) {
+    status.suhu -= 1; // Perlahan turun meski tidak ada pendingin
   }
 
   // Batasi suhu di antara 25°C - 100°C
-  status.suhu = Math.max(25, Math.min(status.suhu, 100));
+  status.suhu = Math.max(25, Math.min(status.suhu, 50));
 
   status.suhuAman = status.suhu <= overheatLevel;
 
-  document.getElementById('thermo').textContent = `Suhu: ${status.suhu.toFixed(1)}°C`;
+  document.getElementById('thermo').textContent = ` ${status.suhu.toFixed(1)}°C`;
 
   if (status.suhu > overheatLevel && status.pengisianAktif && status.pendinginOtomatis) {
     status.pendinginAktif = true;
@@ -108,23 +114,23 @@ function updateChargeBar() {
 }
 
 function updateBaterai(status){
-  document.getElementById('statusBaterai').textContent = `Baterai: ${status.kapasitasBaterai}%`;
+  document.getElementById('statusBaterai').textContent = `${status.kapasitasBaterai}%`;
 }
 
 function updatePendingin(status){
   if(status.pendinginAktif){
-    document.getElementById('cooler').textContent = `Pendingin: Aktif`;
+    document.getElementById('cooler').textContent = `Aktif`;
   }
   else{
-    document.getElementById('cooler').textContent = `Pendingin: -`;
+    document.getElementById('cooler').textContent = `-`;
   }
 }
 
 function naikkanSuhu() {
-  status.suhu += 5;
+  status.suhu += 3;
   if (status.suhu > 100) status.suhu = 100;
   status.suhuAman = status.suhu <= overheatLevel;
-  document.getElementById('thermo').textContent = `Suhu: ${status.suhu.toFixed(1)}°C`;
+  document.getElementById('thermo').textContent = `${status.suhu.toFixed(1)}°C`;
   logStatus(`Suhu dinaikkan manual: ${status.suhu.toFixed(1)}°C`);
 }
 
@@ -146,7 +152,7 @@ function togglePendingin() {
 }
   
 function logStatus(teks) {
-  document.getElementById('status').textContent = `Status: ${teks}`;
+  document.getElementById('status').textContent = `${teks}`;
 }
 // Fungsi untuk memulai pengisian kembali ketika suhu sudah turun
 function checkTemperatureAndRestartCharging() {
@@ -173,11 +179,19 @@ function startCharging() {
     if (penghentianPengisian(status)) {
       clearInterval(interval);
       status.pengisianAktif = false;
+      status.pendinginAktif = false;
       document.getElementById('startBtn').disabled = false;
-      logStatus(
-        `Pengisian berhenti`
-      );
+      document.getElementById('cooler').textContent = `-`;
+      if (status.bateraiPenuh){
+        logStatus(`Pengisian Selesai...`)
+      }
+      else{
+        logStatus(
+          `Pengisian berhenti...`
+        );
+      }
       window.mobil.stop();
+      window.kipas.stop();
       return;
     }
     
@@ -195,6 +209,7 @@ function startCharging() {
       document.getElementById('startBtn').disabled = false;
       logStatus(`Pengisian selesai`);
       window.mobil.stop();
+      window.kipas.stop();
     }
   }, 1000);
 }
@@ -202,6 +217,6 @@ function startCharging() {
 // Periksa suhu setiap detik
 setInterval(() => {
   if (status.suhu <= 40 && !status.pengisianAktif) {
-    checkTemperatureAndRestartCharging();
+    // checkTemperatureAndRestartCharging();
   }
 }, 1000);
