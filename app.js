@@ -1,6 +1,7 @@
 let status = {
-    tegangan: true,
-    arus: true,
+    // tegangan: true,
+    // arus: true,
+    daya: true,
     suhuAman: true,
     bateraiPenuh: false,
     pendinginAktif: false,
@@ -9,18 +10,18 @@ let status = {
     kapasitasBaterai: 0,
     suhu: 30,
   };
-let interval;
 
+let interval;
 const overheatLevel = 50;
-const overheatSound = new Audio('overheat-sound.mp3');
-const notifSound = new Audio('notif-sound.mp3');
+// const overheatSound = new Audio('overheat-sound.mp3');
+// const notifSound = new Audio('notif-sound.mp3');
 
 function mulaiPengisian(status) {
-  return status.tegangan && status.arus && status.suhuAman && !status.bateraiPenuh;
+  return status.daya && status.suhuAman && !status.bateraiPenuh;
 }
 
 function penghentianPengisian(status) {
-  return status.bateraiPenuh || !status.suhuAman || !status.tegangan || !status.arus;
+  return status.bateraiPenuh || !status.suhuAman || !status.daya;
 }
 
 function keberlanjutanPengisian(status) {
@@ -35,6 +36,7 @@ function pengaturanPendingin(status) {
       status.pendinginAktif = true;
       if (status.pendinginAktif && window.kipas){
         window.kipas.play();
+        updatePendingin(status);
       }
       logStatus('Pendingin diaktifkan otomatis karena suhu tinggi!');
     }
@@ -43,6 +45,7 @@ function pengaturanPendingin(status) {
       status.pendinginAktif = false;
       if (!status.pendinginAktif && window.kipas){
         window.kipas.stop();
+        updatePendingin(status);
       }
       logStatus('Pendingin dimatikan otomatis, suhu sudah aman.');
     }
@@ -57,6 +60,10 @@ function penguranganArus(status) {
   } else {
     return 3;
   }
+}
+
+function pengaturanDaya(status){
+  
 }
 
 function updateSuhu(status) {
@@ -141,7 +148,6 @@ function togglePendingin() {
 function logStatus(teks) {
   document.getElementById('status').textContent = `Status: ${teks}`;
 }
-
 // Fungsi untuk memulai pengisian kembali ketika suhu sudah turun
 function checkTemperatureAndRestartCharging() {
   if (status.suhu <= 40 && !status.pengisianAktif) {
