@@ -182,7 +182,7 @@ p{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: flex-start; 
+  align-items: stretch; 
   gap: 1.5rem;
   flex-wrap: wrap;
   margin-top: 1rem;
@@ -232,13 +232,13 @@ p{
   display: flex;
   flex-direction: column;
   justify-content: space-evenly; /* Ubah dari center ke space-evenly untuk mendistribusikan ruang */
-  align-items: center;
+  align-items: stretch;
   gap: 1.5rem;
   margin-top: 1rem; /* Mungkin perlu disesuaikan atau dihilangkan */
   border: 6px solid #0056b3;
   border-radius: 20px;
   background-color: #BBE1FA;
-  padding: 0.8rem 5rem 2.8rem; /* Sesuaikan padding agar mirip dengan status box */
+  padding: 0.8rem 2rem 2.8rem; /* Sesuaikan padding agar mirip dengan status box */
   flex-grow: 1; /* Biarkan tombol box tumbuh */
   min-width: 200px; /* Atur lebar minimum */
   max-width: 30%; /* Atur lebar maksimum untuk responsivitas */
@@ -265,9 +265,12 @@ p{
   max-width: 280px; /* Tingkatkan nilai max-width, misalnya dari 250px menjadi 280px atau 300px */
   margin-left: auto;
   margin-right: auto;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  line-clamp: 1;
+  white-space: nowrap ;
   padding: 0.6rem 1.2rem;
 }
-
 
 .statusTombol .tombol button:hover {
   background-color: #0056b3;
