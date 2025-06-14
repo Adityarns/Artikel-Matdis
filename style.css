@@ -26,7 +26,7 @@ p{
   align-items: center;
   padding: 1rem 7%;
   background-color: #001f3f;
-  border-bottom: 1px solid #3282B8;
+  border-bottom: 1px solid #A1E3F9;
   box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
   z-index: 9999;
 }
@@ -39,19 +39,18 @@ p{
 }
 
 .navbar .navbar-logo span {
-  color: #64b5f6;
+  color: #A1E3F9;
 }
 
 .hero {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background-image: url(SPKLU1.png);
+  background-image: url(SPKLU.jpeg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   position: relative;
-  /* margin-bottom: 2rem; */
 }
 
 .hero::after {
@@ -63,25 +62,28 @@ p{
   bottom: 0;
   background: linear-gradient(
     0deg,
-    rgb(31, 31, 93) 8%,
+    rgb(0, 0, 0) 8%,
     rgba(255, 255, 255, 0) 50%
   );
 }
 
 .hero .content {
-  padding: 1.4rem 7%;
-  max-width: 60rem;
+  justify-content: flex-start;
+  padding: 1.5rem 3%;
+  /* margin-right: 2rem; */
+  max-width: 700px;
+  z-index: 2;
 }
 
 .hero .content h1 {
   font-size: 5em;
   color: #fff;
-  text-shadow: 12px 12px 16px rgba(1, 1, 3, 0.5);
+  text-shadow: 16px 16px 20px rgba(1, 1, 1, 0.5);
   line-height: 1.2;
 }
 
 .hero .content h1 span {
-  color: #3282B8;
+  color: #A1E3F9;
 }
 
 .hero .content p {
@@ -107,20 +109,21 @@ p{
 
 .program {
   display: flex;
+  /* background-image: url(BG2.png); */
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem;
   gap: 1rem;
-  margin-bottom: 1rem;
   width: 100%;
+  margin-top: 4rem;
+  margin-bottom: 3.2rem;
 }
 
 .program h2 {
   text-align: center;
   font-size: 3rem;
   margin-bottom: 0.1rem;
-  color: #3282B8;
+  color: #A1E3F9;
 }
 
 .program h3 {
@@ -130,7 +133,7 @@ p{
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  color: #000;
+  color: #A1E3F9;
 }
 
 .program .program-wrapper {
@@ -141,10 +144,10 @@ p{
   gap: 5rem;
   flex-wrap: wrap;
   text-align: center;
-  border: 4px solid #3282B8;
+  border: 4px solid #A1E3F9;
   border-radius: 16px;
   padding: 1rem;
-  background-color:#BBE1FA; /* Opsional, agar kontras */
+  background-color:#001f3f; /* Opsional, agar kontras */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Opsional, untuk efek bayangan */
   min-width: 300px;
   max-width: 100%;
@@ -191,9 +194,9 @@ p{
   text-align: center;  /* tambahkan ini */
   gap: 1rem;
   margin-top: 1rem;
-  border: 6px solid #3282B8;
+  border: 4px solid #A1E3F9;
   border-radius: 20px;
-  background-color: #BBE1FA;
+  background-color: #001f3f;
   padding: 1.5rem 3rem 1.5rem;
 }
 
@@ -208,7 +211,7 @@ p{
   padding: 0rem 1rem 0rem;
   font-size: 1.5rem;
   font-weight: bold;
-  color: #000;
+  color: #A1E3F9;
   width: 500px; /* Sesuaikan lebar sesuai kebutuhan */
   text-align: left;
 }
@@ -217,7 +220,7 @@ p{
   margin-top: 0.3rem;
   font-weight: bold;
   font-size: 1.2rem;
-  color: #007bff;
+  color: #A1E3F9;
   transition: color 0.5s ease;
   animation: fadeText 1s;
 }
@@ -229,10 +232,10 @@ p{
   align-items: stretch;
   gap: 1.5rem;
   margin-top: 1rem; /* Mungkin perlu disesuaikan atau dihilangkan */
-  border: 6px solid #0056b3;
+  border: 4px solid #A1E3F9;
   border-radius: 20px;
-  background-color: #BBE1FA;
-  padding: 0.8rem 2rem 2.8rem; /* Sesuaikan padding agar mirip dengan status box */
+  background-color: #001f3f;
+  padding: 0.8rem 2.9rem 2.8rem 3.2rem; /* Sesuaikan padding agar mirip dengan status box */
   flex-grow: 1; /* Biarkan tombol box tumbuh */
   min-width: 200px; /* Atur lebar minimum */
   max-width: 30%; /* Atur lebar maksimum untuk responsivitas */
@@ -244,12 +247,12 @@ p{
 }
 
 .statusTombol .tombol button {
-  padding: 0.6rem 1.2rem;
+  padding: 0.6rem 1rem;
   font-size: 1.4rem;
   font-weight: bold;
-  background-color: #fff;
-  color: #0056b3;
-  border: 2px solid #3282B8;
+  background-color: #A1E3F9;
+  color: #000;
+  border: 2px solid #A1E3F9;
   border-radius: 1.3rem;
   width: 95%;
   max-width: 280px;
@@ -273,7 +276,7 @@ p{
   width: 350px;
   max-width: 350px;
   height: 200px;
-  border: 6px solid #333;
+  border: 6px solid #000;
   border-radius: 20px;
   margin: 1.5rem auto;
   position: relative;
@@ -305,45 +308,6 @@ p{
   0% { opacity: 1; }
   50% { opacity: 0.7; }
   100% { opacity: 1; }
-}
-
-.about {
-  padding: 10rem 7% 1.4rem;
-}
-
-.about h2 {
-  color: #0056b3;
-  text-align: center;
-  font-size: 2.6rem;
-  margin-bottom: 3rem;
-}
-
-.about h2 span {
-  color: #0056b3;
-}
-
-.about .row {
-  display: flex;
-}
-
-.about .row .content {
-  flex: 1 1 35rem;
-  padding: 0 1rem;
-}
-
-.about .row .content h3 {
-  color: #fff;
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-}
-
-.about .row .content p {
-  text-align: justify;
-  font-size: 1.2rem;
-  margin-bottom: 0.8rem;
-  font-weight: 100;
-  line-height: 1.6;
-  color: #fff;
 }
 
 /* footer */
