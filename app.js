@@ -76,7 +76,7 @@ function updateSuhu(status) {
   }
   
   if (status.pendinginAktif) {
-    if (status.suhu >= 45) {
+    if (status.suhu >= 50) {
       status.suhu -= 2; // Pendingin lebih kuat saat suhu sangat tinggi
     } else {
       status.suhu -= 1; // Normal cooling
@@ -199,10 +199,10 @@ function toggleCharging() {
     status.pendinginAktif = false;
     button.textContent = 'Start';
     document.getElementById('cooler').textContent = `-`;
+    document.getElementById('power').textContent = `-`;
     logStatus(`Pengisian berhenti`);
     window.mobil?.stop();
     window.kipas?.stop();
-    document.getElementById('power').textContent = `-`;
   }
 }
 
